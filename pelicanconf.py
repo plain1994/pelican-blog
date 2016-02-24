@@ -22,6 +22,12 @@ DEFAULT_CATEGORY ='Blogs'
 
 GOOGLE_ANALYTICS = 'UA-74218843-1'#谷歌站点分析
 
+#TAG_CLOUD_STEPS = 4
+#TAG_CLOUD_MAX_ITEMS = 100
+DISPLAY_TAGS_ON_SIDEBAR = True
+DISPLAY_TAGS_INLINE = True
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

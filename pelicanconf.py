@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Tom Gou'
-SITENAME = u"Tom Gou's Blog"
+AUTHOR = u'Yuchuan Gou'
+SITENAME = u"tomgou.xyz"
 SITEURL = ''
 
 PATH = 'content'
@@ -22,12 +22,32 @@ DEFAULT_CATEGORY ='Blogs'
 
 GOOGLE_ANALYTICS = 'UA-74218843-1'#谷歌站点分析
 
-#TAG_CLOUD_STEPS = 4
-#TAG_CLOUD_MAX_ITEMS = 100
-DISPLAY_TAGS_ON_SIDEBAR = True
-DISPLAY_TAGS_INLINE = True
+
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
+
+GITHUB_USER = "plain1994"
+GITHUB_REPO_COUNT  = 3
+
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["tag_cloud"]
+
+TAG_CLOUD_STEPS = 4
+TAG_CLOUD_MAX_ITEMS = 100
+TAG_CLOUD_SORTING = 'random'
+DISPLAY_TAGS_ON_SIDEBAR = True
+DISPLAY_TAGS_INLINE = True
+
+#BOOTSTRAP_FLUID = True
+#DISPLAY_CATEGORY_IN_BREADCRUMBS = True
+BOOTSTRAP_NAVBAR_INVERSE = True
+FAVICON = 'images/carrot.jpg'
+#AVATAR = 'images/gou.jpeg'
+#ABOUT_ME = 'A student at SJTU'
+
+BANNER = 'images/saul.jpg'
+BANNER_COMMENT = 'blog.tomgou.xyz'
+#BANNER_SUBTITLE = 'This is my subtitle'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

@@ -23,7 +23,7 @@ DEFAULT_CATEGORY ='Blogs'
 GOOGLE_ANALYTICS = 'UA-74218843-1'#谷歌站点分析
 
 
-DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+#DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
 
 GITHUB_USER = "plain1994"
@@ -48,6 +48,11 @@ FAVICON = 'images/carrot.jpg'
 BANNER = 'images/saul.jpg'
 BANNER_COMMENT = 'blog.tomgou.xyz'
 #BANNER_SUBTITLE = 'This is my subtitle'
+
+#ADDTHIS_PROFILE = 'plain1994'
+#add addthis in duoshuo comment
+#add revolvermaps in sidebar.html
+
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

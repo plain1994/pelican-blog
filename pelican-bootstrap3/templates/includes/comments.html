@@ -1,13 +1,7 @@
-{% if DUOSHUO_SITENAME %}
-
-    
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <div class="addthis_sharing_toolbox"></div>
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d3af0e9a805928"></script>
+{% if DUOSHUO_SITENAME%}
     
 <!-- 多说评论框 start -->
-    <div class="ds-thread"  data-url="blog.tomgou.xyz"></div>
+    <div class="ds-thread"  data-url="blog.tomgou.xyz/{{ article.url }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">

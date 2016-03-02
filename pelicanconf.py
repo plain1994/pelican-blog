@@ -30,7 +30,23 @@ GITHUB_USER = "plain1994"
 GITHUB_REPO_COUNT  = 3
 
 PLUGIN_PATHS = ["plugins"]
-PLUGINS = ["tag_cloud"]
+PLUGINS = ["tag_cloud","sitemap","tipue_search"]
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'daily',
+        'pages': 'daily'
+    }
+}
+
+DIRECT_TEMPLATES = (('search',))
 
 TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS = 100
@@ -72,7 +88,7 @@ SOCIAL = (
           ('facebook', 'http://www.facebook.com/yuchuangou'),
           )
 
-DEFAULT_PAGINATION = 10
+DEFAULT_PAGINATION = 8
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

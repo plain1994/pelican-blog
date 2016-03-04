@@ -5,7 +5,7 @@ Tags: Spark, Installation, Hadoop
 Author: Tom Gou
 Summary: 用Ubuntu 14.04.4 LTS当主系统已经有一段时间了，以前在8节点服务器配置过Spark和Hadoop，今天花一点时间在单机部署一下Spark吧，整理好自己的Spark开发环境。
 
-本文将介绍Apache Spark 1.6.0在单机的部署，与在集群中部署的步骤基本一致，只是少了一些master和slave文件的配置。
+本文将介绍Apache Spark 1.6.0在单机的部署，与在集群中部署的步骤基本一致，只是少了一些master和slave文件的配置。直接安装scala与Spark就可以在单机使用，但如果用到hdfs系统的话hadoop和jdk也要配置，建议全部安装配置好。
 
 ###0.Spark的安装准备
 

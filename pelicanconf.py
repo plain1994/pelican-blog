@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Yuchuan Gou'
 SITENAME = u"tomgou.xyz"
-SITEURL = 'http://blog.tomgou.xyz'
+#SITEURL = 'http://blog.tomgou.xyz'
 
 PATH = 'content'
 
@@ -68,6 +68,8 @@ BANNER_COMMENT = 'blog.tomgou.xyz'
 #ADDTHIS_PROFILE = 'plain1994'
 #add addthis in duoshuo comment
 #add revolvermaps in sidebar.html
+
+#DISPLAY_ARTICLE_INFO_ON_INDEX = True
 
 
 # Feed generation is usually not desired when developing

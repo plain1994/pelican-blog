@@ -5,7 +5,7 @@ Tags: Spark, PyCharm, Python, pyspark
 Author: Tom Gou
 Summary: 在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。
 
-在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。配置过程也十分简单，在stackoverflow上搜索到的。同时，IntelliJ IDEA加入Python插件后也可以使用Python开发Spark程序，配置步骤一致。
+在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python程序外，我们可以使用PyCharm这个IDE在本地进行开发调试,提升我们的开发效率。配置过程也十分简单，在stackoverflow上搜索到的。同时，IntelliJ IDEA加入Python插件后也可以使用Python开发Spark程序，配置步骤一致。转载请注明博客原文地址：[http://blog.tomgou.xyz/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html](http://blog.tomgou.xyz/shi-yong-pycharmpei-zhi-sparkde-pythonkai-fa-huan-jing.html)
 
 ###0.安装PyCharm和py4j
 我的系统环境（Ubuntu 14.04.4 LTS）
@@ -13,8 +13,8 @@ Summary: 在本地搭建好Spark 1.6.0后，除了使用spark-submit提交Python
 下载安装最新版本的PyCharm，官网地址：[https://www.jetbrains.com/pycharm/download/](https://www.jetbrains.com/pycharm/download/) 。
 
 安装步骤：
-- Unpack the pycharm-5.0.4.tar.gz using the following command: 
-tar xfz pycharm-5.0.4.tar.gz
+
+- Unpack the pycharm-5.0.4.tar.gz using the following command: tar xfz pycharm-5.0.4.tar.gz
 - Run pycharm.sh from the bin subdirectory
 
 安装py4j：

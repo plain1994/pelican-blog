@@ -5,7 +5,7 @@ Tags: Spark, IntelliJ IDEA
 Author: Tom Gou
 Summary: 在本地搭建好Spark 1.6.0后，除了使用官方文档中的sbt命令打包，spark-submit提交程序外，我们可以使用IntelliJ IDEA这个IDE在本地进行开发调试，之后再将作业提交到集群生产环境中运行，使用IDE可以提升我们的开发效率。
 
-在本地搭建好Spark 1.6.0后，除了使用官方文档中的sbt命令打包，spark-submit提交程序外，我们可以使用IntelliJ IDEA这个IDE在本地进行开发调试，之后再将作业提交到集群生产环境中运行，使用IDE可以提升我们的开发效率。
+在本地搭建好Spark 1.6.0后，除了使用官方文档中的sbt命令打包，spark-submit提交程序外，我们可以使用IntelliJ IDEA这个IDE在本地进行开发调试，之后再将作业提交到集群生产环境中运行，使用IDE可以提升我们的开发效率。转载请注明博客原文地址：[http://blog.tomgou.xyz/shi-yong-intellij-ideapei-zhi-sparkying-yong-kai-fa-huan-jing-ji-yuan-ma-yue-du-huan-jing.html](http://blog.tomgou.xyz/shi-yong-intellij-ideapei-zhi-sparkying-yong-kai-fa-huan-jing-ji-yuan-ma-yue-du-huan-jing.html)
 
 ###0.安装IntelliJ IDEA
 我的系统环境（Ubuntu 14.04.4 LTS）
@@ -14,6 +14,7 @@ Summary: 在本地搭建好Spark 1.6.0后，除了使用官方文档中的sbt命
 最新版本的IntelliJ IDEA支持新建SBT工程，安装scala插件。
 
 安装步骤：
+
 - Unpack the idea idea-15.0.4.tar.gz file using the following command: tar xfz idea-15.0.4.tar.gz
 - Run idea.sh from the bin subdirectory.
 
@@ -46,6 +47,7 @@ Spark安装目录的examples目录下，可以找到Scala编写的示例程序`S
 Exception in thread "main" org.apache.spark.SparkException: A master URL must be set in your configuration
 从提示中可以看出找不到程序运行的master，此时需要配置环境变量。
 搜索引擎查询错误后，了解到传递给spark的master url可以有如下几种，具体可以查看Spark官方文档：
+
 - local 本地单线程
 - local[K] 本地多线程（指定K个内核）
 - local[*] 本地多线程（指定所有可用内核）

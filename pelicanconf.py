@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+DIRECT_TEMPLATES = (('search',))
+
 AUTHOR = u'Yuchuan Gou'
 SITENAME = u"tomgou.xyz"
 SITEURL = 'http://blog.tomgou.xyz'
@@ -32,6 +34,7 @@ GITHUB_REPO_COUNT  = 3
 PLUGIN_PATHS = ["plugins"]
 PLUGINS = ["tag_cloud","sitemap","tipue_search"]
 
+
 SITEMAP = {
     'format': 'xml',
     'priorities': {
@@ -46,7 +49,6 @@ SITEMAP = {
     }
 }
 
-DIRECT_TEMPLATES = (('search',))
 
 TAG_CLOUD_STEPS = 4
 TAG_CLOUD_MAX_ITEMS = 100

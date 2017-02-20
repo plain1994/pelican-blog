@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ch" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>HashtagCounter - tomgou.xyz</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="http://blog.tomgou.xyz/images/carrot.jpg" rel="icon">
+
+<link rel="canonical" href="http://blog.tomgou.xyz/hashtagcounter.html">
+
+        <meta name="author" content="Tom Gou" />
+        <meta name="keywords" content="Java,Fibonacci heap" />
+        <meta name="description" content="This is a project using mas Fibonacci heap to find the n most popular hashtags appeared on social media." />
+
+        <meta property="og:site_name" content="tomgou.xyz" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="HashtagCounter"/>
+        <meta property="og:url" content="http://blog.tomgou.xyz/hashtagcounter.html"/>
+        <meta property="og:description" content="This is a project using mas Fibonacci heap to find the n most popular hashtags appeared on social media."/>
+        <meta property="article:published_time" content="2017-02-20" />
+            <meta property="article:section" content="Blogs" />
+            <meta property="article:tag" content="Java" />
+            <meta property="article:tag" content="Fibonacci heap" />
+            <meta property="article:author" content="Tom Gou" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://blog.tomgou.xyz/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="http://blog.tomgou.xyz/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://blog.tomgou.xyz/theme/css/pygments/native.css" rel="stylesheet">
+    <link href="http://blog.tomgou.xyz/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.tomgou.xyz/theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://blog.tomgou.xyz/" class="navbar-brand">
+tomgou.xyz            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="http://blog.tomgou.xyz/category/blogs.html">Blogs</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="http://blog.tomgou.xyz/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://blog.tomgou.xyz/hashtagcounter.html"
+                       rel="bookmark"
+                       title="Permalink to HashtagCounter">
+                        HashtagCounter
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-02-20T00:58:00+08:00"> Mon 20 February 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://blog.tomgou.xyz/tag/java.html">Java</a>
+        /
+	<a href="http://blog.tomgou.xyz/tag/fibonacci-heap.html">Fibonacci heap</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h1>HashtagCounter</h1>
+<p>This is a project using mas Fibonacci heap to find the n most popular hashtags appeared on social media.</p>
+<p>UF COP 5536 Advanced Data Structures Fall 2016 Programming Project</p>
+<h2>Description</h2>
+<p>The system can find the n most popular hashtags appeared on social media such as Facebook or Twitter. And the hashtags will be given from an input file. </p>
+<p>Basic idea for the implementation is to use a max priority structure to find out the most popular hashtags.</p>
+<p>Two useful structures:</p>
+<ol>
+<li>
+<p>Max Fibonacci heap: use to keep track of the frequencies of hashtags.</p>
+</li>
+<li>
+<p>Hash table: Key for the hash table is hashtag and value is pointer to the corresponding node in the Fibonacci heap.</p>
+</li>
+</ol>
+<p>You can assume there will be a large number of hashtags appears in the stream and you need to perform increase key operation many times. Max Fibonacci heap is required because it has better theoretical bounds for increase key operation.</p>
+<h2>Data Structure of the Project</h2>
+<p>The project requires to find the n most popular hashtags. There will be a large number of hashtags appears in the stream and the increase key operation will be performed many times, so Max Fibonacci heap is required because its better theoretical bounds for increase key operation.</p>
+<p>Besides, in order to increase key of a node in Max Fibonacci heap, we need to search the node in Max Fibonacci heap. To realize searching function, I use Hash table to link the hashtag name with the pointer to the corresponding node in heap. </p>
+<p><img alt="" src="https://raw.githubusercontent.com/plain1994/HashtagCounter/master/data_structure.png" /></p>
+<p>Each hashtag is put in the key of hashtable, and the value is the pointer to Fibonacci node.</p>
+<p>Also, hashtable can help to distinguish different hashtags. If the new hashtag is already in the hash table, it need to find the hashtag in hashtable, and search the corresponding node. Implement the increase key operation to this node. If the new hashtag is not in the hash table, this new node should be insert to the Fibonacci heap.</p>
+<h2>Input and Output</h2>
+<p>The program take the input file name as an argumenmt.</p>
+<div class="highlight"><pre><span></span>java hashtagcounter sampleInput.txt
+</pre></div>
+
+
+<h3>Input Format</h3>
+<p>Hashtags appear one per each line in the input file and starts with # sign. After the hashtag an integer will appear and that is the count of the hashtag (There is a space between hashtag and the integer). You need to increment the hashtag by that count. Queries will also be appeared in the input file and once a query appears you should append the output to the output file. Query will be an integer number (n) without # sign in the beginning. You should write the top most n hashtags to the output file. Once it reads the stop (without hashtag) program should end. Following is an example of an input file.</p>
+<div class="highlight"><pre><span></span>#saturday 5 
+#sunday 3 
+#saturday 10 
+#monday 2 
+#reading 4 
+#playing_games 2 
+#saturday 6 
+#sunday 8
+#friday 2 
+#tuesday 2 
+#saturday 12 
+#sunday 11 
+#monday 6 
+3
+#saturday 12 
+#monday 2 
+#stop 3 
+#playing 4 
+#reading 15 
+#drawing 3 
+#friday 12 
+#school 6 
+#class 5
+5 
+stop
+</pre></div>
+
+
+<h3>Output Format</h3>
+<p>Once a query is appeared you need to write down the most popular hashtags of appeared number in to the output file in descending order. Output for a query should be comma separated list without any new lines. Once the output for a query is finished you should put a new line to write the output for another query. </p>
+<p>Following is the output file for the above input file.</p>
+<div class="highlight"><pre><span></span>saturday,sunday,monday
+saturday,sunday,reading,friday,monday
+</pre></div>
+
+
+<h2>Program Structure</h2>
+<p><img alt="" src="https://raw.githubusercontent.com/plain1994/HashtagCounter/master/program_structure.png" /></p>
+            </div>
+            <!-- /.entry-content -->
+            
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56d3af0e9a805928"></script>
+    <!-- AddThis Button END -->
+
+<!-- 多说评论框 start -->
+    <div class="ds-thread"  data-url="blog.tomgou.xyz/hashtagcounter.html"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"tomgou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+<!-- 多说公共JS代码 end -->
+            
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/plain1994"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+                <li class="list-group-item"><a href="http://weibo.com/tomgou"><i class="fa fa-weibo fa-lg"></i> weibo</a></li>
+                <li class="list-group-item"><a href="http://www.facebook.com/yuchuangou"><i class="fa fa-facebook-square fa-lg"></i> facebook</a></li>
+              </ul>
+            </li>
+
+            <li class="list-group-item"><a href="http://blog.tomgou.xyz/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                    <li class="list-group-item tag-2">
+                        <a href="http://blog.tomgou.xyz/tag/basic.html">
+                            basic
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/cc.html">
+                            C/C++
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/fibonacci-heap.html">
+                            Fibonacci heap
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/hadoop.html">
+                            Hadoop
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/installation.html">
+                            Installation
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/intellij-idea.html">
+                            IntelliJ IDEA
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/java.html">
+                            Java
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/pycharm.html">
+                            PyCharm
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/pyspark.html">
+                            pyspark
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://blog.tomgou.xyz/tag/scala.html">
+                            Scala
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://blog.tomgou.xyz/tag/spark.html">
+                            Spark
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+      </ul>
+    </li>
+        
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+    </li>
+        
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=5i7e91zcj7e&amp;m=6&amp;s=240&amp;c=ff0000&amp;cr1=ffffff&amp;f=ubuntu&amp;l=0" async="async"></script>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Yuchuan Gou
+            &middot; Powered by 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>,
+            <a href="https://www.python.org" target="_blank">Python</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://blog.tomgou.xyz/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://blog.tomgou.xyz/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://blog.tomgou.xyz/theme/js/respond.min.js"></script>
+
+    <script src="http://blog.tomgou.xyz/theme/js/bodypadding.js"></script>
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://blog.tomgou.xyz/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'plain1994',
+                count: 3,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://blog.tomgou.xyz/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-74218843-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+
+</body>
+</html>
